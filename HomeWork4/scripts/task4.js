@@ -2,10 +2,18 @@
 // Нельзя использовать стандартный метод reverse().
 //     Постарайтесь не использовать дополнительный массив. Оригинальный массив А сохранять не нужно (т.е. он должен перевернуться).
 
-var A = [1,2,3,4,5,6,7,8,9];
+var n = 6;
+var A = [];
+A.length = n;
 var b = 0;
-for (var i = 0, j = 1; i < A.length; i++) {
+for (i = 0; i < A.length; i++) {
+    A[i] = Math.floor(Math.random() * 20) - 10;
+}
+console.log('Начальный Массив A: ' + A);
+for (var i = 0, j = 1; i < A.length / 2; i++) {
     b = A[i];
     A[i] = A[A.length - j];
-
+    A[A.length - j] = b;
+    j++;
 }
+console.log('Перевернутый Массив A: ' + A);
