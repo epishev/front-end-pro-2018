@@ -131,3 +131,17 @@ https://learn.javascript.ru/ifelse
     1. Найти ряд, где сумма элементов наименьшая
     2. Найти ряд, где сумма элементов найбольшая
     3. Поменять ряды местами (1 и 2 пункт)
+
+# HomeWork6
+
+# Изучить материал
+
+http://learn.javascript.ru/function-declaration-expression
+https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Functions
+https://myrusakov.ru/javascript-closures.html
+
+# Практика
+
+1) Написать функцию заполнения двумерного массива. Имя произвольное.
+
+2) написать функцию, которая примет как аргумент(параметр) два массива и сравнить суммы всех ЧИСЛОВЫХ элементов. Тот массив, сумма которого большая - должен вернутся функцией.
