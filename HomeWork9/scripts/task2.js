@@ -1,34 +1,16 @@
-// 2) Написать функцию assignObjects(obj1, obj2), которая принимает аргументами 2 обьекта и возвращает новый, который состоит из свойство обоих обьектов (склеить). Если свойство повторяется, то взять значение второго обьекта
-// 3) В задачу п.2 добавить 3ий аргумента flag, который является boolean. Если флаг true, тогда при наличии свойства в обоих объектов в результат пойдет значение из первого обьекта, false - из второго.
-//     ```
-// assignObjects({...}, {...}, false);
-// ```
-//
-// 4) В задачу п.3, сделать параметр flag не обязательный, если параметр не передать - устанавливать значение false.
+// 2) Дана строка вида &#39;var_text_hello&#39;. Сделайте из него текст &#39;varTextHello&#39;.
 
-var obj1 = {
-    x: 10,
-    y: 'hello'
-},  obj2 = {
-    z: 30,
-    y: 'buy'
+var str = '&#39;var_text_hello&#39;.'
+var resString = '';
+for (var i = 0; i < str.length; i++) {
+     if ( str[i] == '_') {
+         continue;
+     }
+     if ( (str[i] == 't' && i < 10) || str[i] == 'h' ) {
+         var upper = str[i].toUpperCase();
+         resString += upper;
+         continue;
+     }
+    resString += str[i];
 }
-function assignObjects() {
-    var args = arguments,
-        resobj = {},
-        obj1 = args[0],
-        obj2 = args[1],
-        last = args[args.length - 1],
-        isLastBool = typeof last == 'boolean',
-        flag = isLastBool ? last : false;
-    for (var key in obj1) {
-        resobj[key] = obj1[key];
-    }
-    for (var key in obj2) {
-        if (flag && resobj[key]) {
-            continue;
-        }
-        resobj[key] = obj2[key];
-    }
-    return resobj;
-}
+console.log(resString);
