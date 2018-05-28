@@ -1,6 +1,6 @@
 // Создать игру:
 //
-//Есть поле field, является экземпляром класса Field(width, height), предпочитаемые размеры 10 на 10.
+//     Есть поле field, является экземпляром класса Field(width, height), предпочитаемые размеры 10 на 10.
 //
 // Есть герой person, класс Person(name, XPosition, YPosition)
 //
@@ -8,7 +8,7 @@
 // Поле являет собой двумерный массив, который состоит из нулей. Там где находится наш герой - стоит 1.
 //
 // Field имеет такие методы:
-// * renderField() - выводит поле в document, устанавливает разделители `<hr />` сверху и снизу
+//     * renderField() - выводит поле в document, устанавливает разделители `<hr />` сверху и снизу
 // * clearField() - убирает героя с доски
 // * changeSize(newX, newY) - меняет размер поля
 //
@@ -25,7 +25,7 @@
 //
 //     Суть такая:
 //
-// field.renderField();
+//     field.renderField();
 // person.start();
 // person.go('left', 2);
 // person.go('top', 1);
@@ -33,38 +33,60 @@
 //
 // последовательно вызываются команды, renderField - отображает новую доску в document. В результате мы должны увидеть 2 нарисованных состояния поля.
 
+
 function Field(width, height) {
-    this.width = width;
-    this.height = height;
-    var obj = {
-        field: function (width, height) {
-            var arr = new Array(width);
-            for(var i = 0; i < arr.length; i++) {
-                arr[i] = new Array(height);
-            }
-            for (var i = 0; i < arr.length; i++) {
-                for (var j = 0;j < arr[i].length;j++) {
-                    arr[i][j] = 0;
+    this.field = new Array(width);
+    for (var i = 0; i < this.field.length; i++) {
+        this.field[i] = new Array(height);
+        for (var j = 0; j < this.field[i].length; j ++) {
+            this.field[i][j] = 0;
+        }
+    }
+
+    person = new Person('Vasia');
+
+
+};
+
+Field.prototype.renderField = function (separator) {
+    separator = separator || '-';
+            var resSep = '';
+            for (var i = 0; i < this.field.length; i++) {
+                for (var j = 0; j < this.field[i].length; j++) {
+                    document.write(this.field[i][j] + ' ');
                 }
+                document.write('<br />');
             }
-            return arr;
+            for (var i = 0; i < this.field[0].length; i++) {
+                resSep += separator;
+            }
+            document.write(resSep);
+            document.write('<br />');
+
+};
+Field.prototype.clearField = function () {
+
+};
+Field.prototype.changeSize = function (newX, newY) {
+    this.field = new Array(newX);
+    for (var i = 0; i < this.field.length; i++) {
+        this.field[i] = new Array(newY);
+        for (var j = 0; j < this.field[i].length; j ++) {
+            this.field[i][j] = 0;
         }
     }
+};
 
-    var methods = {
-        renderField: function () {
-
-        },
-        clearField: function () {
-
-        },
-        changeSize: function (newX, newY) {
-
-        }
-    }
-    return Object.assign(Object.create(methods),obj);
+function Person(name, XPosition, YPosition) {
+    this.XPosition = (XPosition == undefined) ? 5 : XPosition;
+    this.YPosition = (YPosition == undefined) ? 5 : YPosition;
 }
 
-function Person(name,XPosition,YPosition) {
+
+// Person.prototype.start = function (XPosition, YPosition) {
+//     this.field[XPosition][YPosition] = 1;
+// }
+
+Person.prototype.go = function (direction, step) {
 
 }
