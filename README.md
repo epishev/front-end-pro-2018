@@ -415,3 +415,99 @@ HomeWork15
 
 2) При нажатии на CTRL персонаж должен "присесть" (уменьшиться в размерах по высоте на 40%, по ширине - увеличится на 15%)
 3) Дополнительно: при зажатом CTRL персонаж может продолжать двигатся в ЛЕВО и ПРАВО! (т.е. ВВЕРХ и ВНИЗ не работают, ПРОБЕЛ не работает)
+****************************************************************************************
+HomeWork16
+# Изучить материал
++ https://developer.mozilla.org/ru/docs/Web/Guide/HTML/Drag_and_drop
++ https://www.w3schools.com/html/html5_draganddrop.asp
++ https://learn.javascript.ru/introduction-browser-events#addeventlistener-%D0%B8-removeeventlistener
++ https://learn.javascript.ru/modifying-document
++ https://learn.javascript.ru/multi-insert
++ https://learn.javascript.ru/metrics
+
+# Практика
+
+1. Реализовать контекстное меню. Список хранить в памяти.
+
+2. Применить меню к домашке с лекции №15 (персонаж). Создать actions: Jump, Remove, ChangeColor
+
+3. Меню должно всегда открыватся в окне, не создавая скрола.
+******************************************************************************************
+HomeWork17
+# Изучить материал
++ https://learn.javascript.ru/call-apply
++ https://getinstance.info/articles/javascript/call-apply-and-bind-functions/
++ http://prgssr.ru/development/vvedenie-v-karrirovanie-v-javascript.html
++ https://learn.javascript.ru/array-iteration
++ https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array - выбераем слева интересующий метод (forEach, map)
+
+# Практика
+
+1) напиши функцию pluck, которая берет массив объектов и возвращает массив значений определенного поля:
+
+        var characters = [
+            { 'name': 'barney', 'age': 36 },
+            { 'name': 'fred', 'age': 40 }
+        ];
+
+        console.log(pluck(characters, 'name')); // ['barney', 'fred']
+
+2) напиши функцию filter, которая принимает функцию-предикат и массив. Возвращает она массив значений, для которых предикат вернет true.
+
+        var input = [1, 2, 3, 4, 5, 6];
+        function isEven(x) { return x % 2 == 0; } // проверяет на четность
+        console.log(filter(input, isEven)); // [2, 4, 6]
+Функция не должна изменять исходный массив
+
+3) Напиши функцию `count()`, считающую число свойств в объекте. Функция должна хранится в прототипе всех обьеков
+*********************************************************************************************
+HomeWork18
+# Изучить материал
+
++ https://tproger.ru/articles/localstorage/
++ https://developer.mozilla.org/ru/docs/Web/API/Storage
++ https://developer.mozilla.org/ru/Add-ons/WebExtensions/API/cookies
++ https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/JSON
+
+# Практика
+
+1) Эмулируем работу корзины. В правом верхнем углу список набранных товаров (определяем по id).
+Товары расположены в ряд по центру. Создаем 5 разных типов товаров.
+
++ Кнопка Add to cart
++ Кнопка Remove (из корзины)
++ Кнопка Remove All
++ При перезагрузке страницы прорисовываются ранее выбранные товары
+
+
+\* При клике на товар, корзина прорисовывает список выбранных товаров
+
+\** Если товар уже ранее был выбран, то увеличивается счетчик - Товар "id 205" x2 штуки
+
+Дизайнерские решение должны быть максимально примитивными.
+************************************************************************************************
+HomeWork 19
+# Изучить материал
+
++ https://learn.javascript.ru/ajax-nodejs
++ https://learn.javascript.ru/ajax-xmlhttprequest
++ https://habrahabr.ru/post/50147/
+
+# Практика
+
+1) Создать форму по отправке имени и возраста. Сделать валидацию данных (в имени не может быть чисел, в возрасте букв). При успешной валидации сформировать отправку данных с формы на url `/registration`. В результате ничего в ответе мы не должны получить (кроме ошибки 404). Суть - отправка данных с валидацией.
+************************************************************************************************
+HomeWork20
+# Изучить материал
+
++ https://learn.javascript.ru/ajax-nodejs
++ https://learn.javascript.ru/ajax-xmlhttprequest
++ https://habrahabr.ru/post/50147/
+
+# Практика
+
+1) Создать форму по отправке имени и возраста. Сделать валидацию данных (в имени не может быть чисел, в возрасте букв). При успешной валидации сформировать отправку данных с формы на url `/registration`. В результате ничего в ответе мы не должны получить (кроме ошибки 404). Суть - отправка данных с валидацией.
+
+
+
+

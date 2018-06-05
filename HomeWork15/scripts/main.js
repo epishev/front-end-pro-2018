@@ -10,28 +10,70 @@
 // 3) Дополнительно: при зажатом CTRL персонаж может продолжать двигатся в ЛЕВО и ПРАВО! (т.е. ВВЕРХ и ВНИЗ не работают, ПРОБЕЛ не работает)
 
 window.onload = function () {
-    var transformer = document.querySelector('.square');
-    var h = 100;
+    var transformer = document.querySelector('.square'),
+        step = 2,
+        direction = 1,
+        current = 350,
+        left = 500;
 
-    document.addEventListener('keydown', function (event) {
-        if(event.code == 'Space') {
-            var i = -1;
-            var current = 450;
-            setInterval(function () {
-                if (i !== -h) {
-                    current += i;
-                    transformer.style.top = current + 'px';
-                    i--;
-                } else if (i == -h || current == 450){
-                    i = 1;
-                    current += i;
-                    transformer.style.top = current + 'px';
-                    i++;
-                }
+    document.addEventListener('keydown', doJump);
+    document.addEventListener('keydown', doSead);
+    document.addEventListener('keyup',doUp);
+    document.addEventListener('keydown',doStep);
 
-            },50);
+    function doStep(event) {
+        if (event.code == 'ArrowRight') {
+            left += step;
+            transformer.style.left = left + 'px';
         }
-    });
 
+        if (event.code == 'ArrowLeft') {
+            left -= step;
+            transformer.style.left = left + 'px';
+        }
+    }
 
+    function doSead(event) {
+        if (event.code == "ControlLeft") {
+            transformer.style.height = 60 + 'px';
+            transformer.style.width = 115 + 'px';
+        }
+    }
+
+    function doUp(event) {
+        if (event.code == "ControlLeft") {
+            transformer.style.height = 100 + 'px';
+            transformer.style.width = 100 + 'px';
+        }
+    }
+
+    var timer;
+
+    function doJump(event) {
+        var top = transformer.offsetTop;
+
+        console.log(top)
+        if(event.code == 'Space') {
+            timer = setTimer(top);
+        }
+    }
+
+    function startAnimation(top) {
+        // console.log(transformer.offsetTop, top);
+        if (transformer.offsetTop > top) {
+            clearInterval(timer);
+            transformer.style.bottom = '0px';
+        }
+
+        if (current == 450) {
+            direction = -direction;
+        }
+        current += step*direction;
+        transformer.style.bottom = current + 'px';
+    }
+
+    function setTimer(top) {
+        return setInterval(startAnimation, 10, top);
+    }
+    
 };
