@@ -11,10 +11,11 @@
 
 window.onload = function () {
     var transformer = document.querySelector('.square'),
-        step = 2,
+        step = 1,
         direction = 1,
         current = 350,
-        left = 500;
+        left = 500,
+        canDo = true;
 
     document.addEventListener('keydown', doJump);
     document.addEventListener('keydown', doSead);
@@ -22,26 +23,26 @@ window.onload = function () {
     document.addEventListener('keydown',doStep);
 
     function doStep(event) {
-        if (event.code == 'ArrowRight') {
-            left += step;
+        if (canDo && event.code == 'ArrowRight') {
+            left += step*5;
             transformer.style.left = left + 'px';
         }
 
-        if (event.code == 'ArrowLeft') {
-            left -= step;
+        if (canDo && event.code == 'ArrowLeft') {
+            left -= step*5;
             transformer.style.left = left + 'px';
         }
     }
 
     function doSead(event) {
-        if (event.code == "ControlLeft") {
+        if (canDo && event.code == "ControlLeft") {
             transformer.style.height = 60 + 'px';
             transformer.style.width = 115 + 'px';
         }
     }
 
     function doUp(event) {
-        if (event.code == "ControlLeft") {
+        if (canDo && event.code == "ControlLeft") {
             transformer.style.height = 100 + 'px';
             transformer.style.width = 100 + 'px';
         }
@@ -51,29 +52,28 @@ window.onload = function () {
 
     function doJump(event) {
         var top = transformer.offsetTop;
-
-        console.log(top)
-        if(event.code == 'Space') {
+        if(canDo && event.code == 'Space') {
             timer = setTimer(top);
+            canDo = false;
         }
     }
 
     function startAnimation(top) {
-        // console.log(transformer.offsetTop, top);
-        if (transformer.offsetTop > top) {
+        current += step*direction;
+        transformer.style.bottom = current + 'px';
+        if (transformer.offsetTop == top) {
+            direction = -direction;
+            transformer.style.bottom = 350 + 'px';
+            canDo = true;
             clearInterval(timer);
-            transformer.style.bottom = '0px';
         }
-
         if (current == 450) {
             direction = -direction;
         }
-        current += step*direction;
-        transformer.style.bottom = current + 'px';
     }
 
     function setTimer(top) {
-        return setInterval(startAnimation, 10, top);
+        return setInterval(startAnimation, 1, top);
     }
     
 };
