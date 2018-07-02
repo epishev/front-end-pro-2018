@@ -35,17 +35,17 @@ function sortByPrice(array) {
 
 function sortByTitle(array) {
     return array.sort((a, b) => { return a.title.localeCompare(b.title); });
-    };
+    }
 
 function getGoods(array,value) {
     let resArr = [];
-    for (good of array) {
+    array.forEach(good => {
         for(key in good) {
             if (good[key].toString().indexOf(value) !== -1) {
                 resArr.push(good);
             }
         }
-    }
+    });
     return resArr;
 }
 

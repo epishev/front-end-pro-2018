@@ -1,0 +1,37 @@
+[
+  {
+    "id": 11,
+    "img": "./images/image1.jpg",
+    "title": "E_Tovar1",
+    "price": "23",
+    "currency":"$"
+  },
+  {
+    "id": 13,
+    "img": "./images/image2.png",
+    "title": "G_Tovar2",
+    "price": "34",
+    "currency":"$"
+  },
+  {
+    "id": 22,
+    "img": "./images/image3.png",
+    "title": "M_Tovar3",
+    "price": "54",
+    "currency":"$"
+  },
+  {
+    "id": 23,
+    "img": "./images/image4.png",
+    "title": "s_Tovar4",
+    "price": "43",
+    "currency":"$"
+  },
+  {
+    "id": 23,
+    "img": "./images/image4.png",
+    "title": "l_Tovar5",
+    "price": "33",
+    "currency":"$"
+  }
+]

@@ -19,10 +19,7 @@ buttonPrice.addEventListener('click',function () {
 });
 
 buttonSearch.addEventListener('click',function () {
-    if (inputSearch.value.length > 3) {
         render.goods(data.getGoods(data.getResponse(),inputSearch.value));
-    }
-
 });
 
 buttonReset.addEventListener('click',function () {
